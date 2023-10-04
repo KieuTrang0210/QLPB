@@ -26,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `departments` (
   PRIMARY KEY (`D_No`),
   KEY `departments_manager_id_foreign` (`manager_id`),
   CONSTRAINT `departments_manager_id_foreign` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table company.departments: ~11 rows (approximately)
+-- Dumping data for table company.departments: ~13 rows (approximately)
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
 INSERT INTO `departments` (`D_No`, `name`, `location`, `manager_id`) VALUES
 	(1, 'Gilbert Stehr', '1816 Harry Meadows\nNew Ronburgh, MI 59102', 10),
@@ -38,10 +38,12 @@ INSERT INTO `departments` (`D_No`, `name`, `location`, `manager_id`) VALUES
 	(5, 'Prof. Thelma Doyle MD', '280 Connelly Lake\nWest Estel, MS 82800-7515', 1),
 	(6, 'Kristin Becker', '587 Jacobson Forks\nMonahanchester, HI 04385', 7),
 	(7, 'Eula Doyle', '8273 Renner Overpass\nSouth Maryam, ME 93243', 8),
-	(8, 'Kareem Hansen', '20106 Frederik Brooks\nLake Lavinabury, PA 61177-7380', 9),
+	(8, 'Kareem Hansen', 'hcm', 18),
 	(9, 'Weston Collier', '12097 Schaden Via\nCrooksfurt, OR 36910-9592', 3),
 	(10, 'Elmer Price', '349 Fritsch Trail Suite 505\nNobleburgh, AR 84143', 5),
-	(12, 'Phòng kế toán', 'Ha Noi', 16);
+	(12, 'Phòng kế toán', 'Ha Noi', 16),
+	(14, 'DHTL', 'Ha Noi', 9),
+	(15, 'HVNG', 'Chua Boc', 12);
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 -- Dumping structure for table company.dependents
@@ -114,7 +116,7 @@ INSERT INTO `employees` (`Id`, `name`, `address`, `gender`, `dob`, `doj`, `depar
 	(6, 'Prof. Elvera Waters DDS', '36609 Beer Club\nHermistontown, MI 50556', 'Male', '2023-04-15', '1991-10-28', 6),
 	(7, 'Lela Kunde', '239 Berta Streets\nNorth Floyd, MN 62253', 'Male', '2019-08-07', '1996-04-11', 7),
 	(8, 'Felicita Bartoletti', '514 Rodger Field Apt. 078\nWest Roger, SC 64850', 'Male', '1976-04-02', '2021-08-11', 8),
-	(9, 'Garfield OKon DDS', '3661 Martin Crescent Suite 891\nEast Carlo, IL 85309-7479', 'Male', '2010-06-02', '2003-05-21', 9),
+	(9, 'Garfield O\'Kon DDS', '3661 Martin Crescent Suite 891\nEast Carlo, IL 85309-7479', 'Male', '2010-06-02', '2003-05-21', 9),
 	(10, 'Jessika Little Jr.', '521 Nikko Plaza\nPort Kathlynstad, FL 05891-0527', 'Female', '2002-12-21', '2014-10-19', 10),
 	(11, 'Meagan Lakin', '82286 Fritz Mountain\nSchusterfurt, SC 67225', 'Male', '2019-08-16', '2004-02-21', 1),
 	(12, 'Wilber Orn', '822 Iva Cliffs Suite 623\nNorth Zola, CA 37056-3735', 'Female', '2016-07-09', '2015-01-01', 6),
@@ -153,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table company.migrations: ~18 rows (approximately)
+-- Dumping data for table company.migrations: ~17 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),

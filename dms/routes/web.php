@@ -27,3 +27,5 @@ Route::get('/departments/{id}/edit', [DepartmentController::class, 'edit'])->nam
 Route::put('/departments/{id}', [DepartmentController::class, 'update'])->name('departments.update');
 
 Route::delete('/departments/{id}', [DepartmentController::class, 'delete'])->name('departments.delete');
+
+Route::get('/search', [DepartmentController::class, 'search'])->name('departments.search');

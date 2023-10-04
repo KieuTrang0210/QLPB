@@ -16,11 +16,25 @@
             </div>
         @endif
 
-        <!-- Title -->
-        <div class="d-flex align-items-center">
-            <h3 class="text-center text-success my-3">Department Management
-</h3>
-            <a href="{{route('departments.create')}}" class="btn btn-success ms-auto"> <i class="bi bi-plus-lg"></i> Add New Department</a>
+          <!-- Title -->
+        <a href="{{route('home')}}" class="py-3 fs-2 fw-bolder text-dark text-decoration-none d-flex justify-content-center">Department Management</a>
+        <hr>
+
+        <div class="row py-3">
+            <div class="col-md-6">
+                <a href="{{route('departments.create')}}" class="btn btn-success"> <i class="bi bi-plus-lg"></i> Add New Department</a>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <form action="{{ route('departments.search') }}" method="get">
+                        <div class="input-group">
+                            <input class="form-control" name="search" placeholder="Search..." value="{{ isset($search) ? $search : '' }}">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <!-- Bảng hiển thị danh sách phòng ban -->

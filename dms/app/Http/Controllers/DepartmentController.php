@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\Validator;
 
 class DepartmentController extends Controller
 {
+
+    public function search(Request $request){
+        $search = $request->input('search');
+        $departments = Department::where(function($query) use ($search){
+                $query->where('D_No', 'like', "%$search%")
+                ->orWhere('location', 'like', "%$search%");})
+
+                ->orWhereHas('manager', function($query) use ($search){
+                    $query->where('name', 'like', "%$search%");})
+
+                ->paginate(5);
+
+        return view('layouts.home', compact('departments', 'search'));
+    }
+
     // form thêm 
     public function create(){
         $employees = Employee::all();
