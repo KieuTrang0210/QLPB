@@ -8,7 +8,7 @@ use App\Models\Department;
 class HomeController extends Controller
 {
     public function getAllDepartments(){
-        $departments = Department::paginate(5);
+        $departments = Department::orderBy('D_No', 'desc')->paginate(5);
         return view('layouts.home', compact('departments'));
     }
 }
